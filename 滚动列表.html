@@ -1,0 +1,197 @@
+<html class="vPanelPage">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <title></title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!--下面可合并-->
+    <script type="text/javascript" src="static/js/jquery-1.7.2.min.js"></script>
+    <!--下面可合并-->
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            padding: 0;
+            margin: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        .sign_list{
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            margin-left: 10px;
+        }
+        .sign_list .title {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 16px;
+        }
+        .sign_list .list {
+            max-height: 300px;
+            overflow: hidden;
+        }
+        .sign_list .list ul li{
+            height: 30px;
+            line-height: 30px;
+        }
+        .sign_list .list ul li span{
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: #333
+
+        }
+        .sign_list .list ul li span.copy{
+            width: 200px;
+            float: left;
+        }
+        .sign_list .list ul li span.name{
+            float: right;
+            width: 50px;
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body style="background-color: #F2F4F5;">
+      
+    <div class="sign_list">
+        <div class="title">
+            <span><b>报名企业</b></span>
+        </div>
+        <div class="list marqueebox">
+            <ul>
+                <li>
+                    <span class="copy" title="东莞市旭升贸易有限公司">东莞市旭升贸易有限公司东莞市旭升贸易有限公司</span>
+                    <span class="name">张国文</span>
+                </li>
+                <li>
+                    <span class="copy" title="电联技术有限公司">电联技术有限公司</span>
+                    <span class="name">江星</span>
+                </li>
+                <li>
+                    <span class="copy" title="联想电子">联想电子</span>
+                    <span class="name">江星</span>
+                </li>
+                <li>
+                    <span class="copy" title="连云港经济技术开发区新材料有限公司">连云港经济技术开发区新材料有限公司</span>
+                    <span class="name">江星</span>
+                </li>
+                <li>
+                    <span class="copy" title="电联技术有限公司">电联技术有限公司</span>
+                    <span class="name">江星</span>
+                </li>
+                <li>
+                    <span class="copy" title="联想电子">联想电子</span>
+                    <span class="name">江星</span>
+                </li>
+                <li>
+                    <span class="copy" title="电联技术有限公司">电联技术有限公司</span>
+                    <span class="name">江星</span>
+                </li>
+                <li>
+                    <span class="copy" title="东莞市旭升贸易有限公司">东莞市旭升贸易有限公司东莞市旭升贸易有限公司</span>
+                    <span class="name">张国文</span>
+                </li>
+                <li>
+                    <span class="copy" title="电联技术有限公司">电联技术有限公司</span>
+                    <span class="name">江星</span>
+                </li>
+                <li>
+                    <span class="copy" title="联想电子">联想电子</span>
+                    <span class="name">江星</span>
+                </li>
+                <li>
+                    <span class="copy" title="连云港经济技术开发区新材料有限公司">连云港经济技术开发区新材料有限公司</span>
+                    <span class="name">江星</span>
+                </li>
+                <li>
+                    <span class="copy" title="电联技术有限公司">电联技术有限公司</span>
+                    <span class="name">江星</span>
+                </li>
+                <li>
+                    <span class="copy" title="联想电子">联想电子</span>
+                    <span class="name">江星</span>
+                </li>
+                <li>
+                    <span class="copy" title="连云港经济技术开发区新材料有限公司">连云港经济技术开发区新材料有限公司</span>
+                    <span class="name">派大星</span>
+                </li>
+            </ul>
+        </div>
+    
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $(".marqueebox").myScroll({
+                    speed: 40, //数值越大，速度越慢
+                    rowHeight: 30 //li的高度
+                });
+            });
+            (function ($) {
+                $.fn.myScroll = function (options) {
+                    //默认配置
+                    var defaults = {
+                        speed: 40,  //滚动速度,值越大速度越慢
+                        rowHeight: 24 //每行的高度
+                    };
+
+                    var opts = $.extend({}, defaults, options), intId = [];
+
+                    function marquee(obj, step) {
+
+                        obj.find("ul").animate({
+                            marginTop: '-=1'
+                        }, 0, function () {
+                            var s = Math.abs(parseInt($(this).css("margin-top")));
+                            if (s >= step) {
+                                $(this).find("li").slice(0, 1).appendTo($(this));
+                                $(this).css("margin-top", 0);
+                            }
+                        });
+                    }
+
+                    this.each(function (i) {
+                        var sh = opts["rowHeight"], speed = opts["speed"], _this = $(this);
+                        intId[i] = setInterval(function () {
+                            if (_this.find("ul").height() <= _this.height()) {
+                                clearInterval(intId[i]);
+                            } else {
+                                marquee(_this, sh);
+                            }
+                        }, speed);
+
+                        _this.hover(function () {
+                            clearInterval(intId[i]);
+                        }, function () {
+                            intId[i] = setInterval(function () {
+                                if (_this.find("ul").height() <= _this.height()) {
+                                    clearInterval(intId[i]);
+                                } else {
+                                    marquee(_this, sh);
+                                }
+                            }, speed);
+                        });
+
+                    });
+
+                }
+
+            })(jQuery);
+
+        </script>
+    </div>
+    
+</body>
+
+</html>

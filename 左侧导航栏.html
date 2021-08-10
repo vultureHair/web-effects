@@ -1,0 +1,303 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <title></title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!--下面可合并-->
+    <script type="text/javascript" src="static/js/jquery-1.7.2.min.js"></script>
+    <!--下面可合并-->
+
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        ul{
+            padding: 0;
+            margin: 0;
+        }
+        ul li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        /* 导航栏 */
+        .nav_menu{
+            padding-top: 15px;
+            width: 200px;
+            float: left;
+            position: fixed;
+            left: 0;
+            background-color: #344567;
+            height: 100%;
+            z-index: 101;
+        }
+        .nav_menu .navigation{
+            height: 80%;
+            overflow: hidden;
+            overflow-y: scroll;
+        }
+        .nav_menu .navigation ul{
+            margin-bottom: 30px;
+        }
+        .nav_menu .navigation ul .ti{
+            color: #7f899d;
+            display: block;
+            font-size: 12px;
+            padding-left: 22px;
+            padding-bottom: 8px;
+            position: relative;
+        }
+        .nav_menu .navigation ul li a{
+            display: block;
+            height: 36px;
+            line-height: 36px;
+            color: #fff;
+            font-size: 14px;
+            padding-left: 22px;
+        }
+        .nav_menu .navigation ul li em{
+            font-style: normal;
+            padding-left: 24px;
+            position: relative;
+        }
+        .nav_menu .navigation ul li .drop{
+            display: none;
+        }
+        .nav_menu .navigation ul li .drop ul li a{
+            padding-left: 40px;
+            font-size: 12px;
+        }
+        .nav_menu .navigation ul li .drop ul li a .curr{
+            background-color: #253148;
+        }
+
+        .nav_menu .navigation::-webkit-scrollbar{
+            width: 2px;
+        }
+        .nav_menu .navigation::-webkit-scrollbar-thumb{
+            background-color: #0089FF;
+            border-radius: 2em;
+        }
+        .nav_menu .navigation::-webkit-scrollbar-track{
+            background-color: #344567;
+            border-radius: 2em;
+        }
+
+
+        /* 设置 */
+        .nav_menu .more {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 200px;
+            background-color: #344567;
+        }
+        .nav_menu .more span {
+            margin: 0 20px;
+            display: block;
+            height: 56px;
+            border-top: 1px solid #626d7c;
+        }
+        .nav_menu .more span a {
+            display: block;
+            line-height:56px;
+            color: #fff;
+            padding-left: 24px;
+            background: url(static/images/ico_set.png) left center no-repeat;
+        }
+        .nav_menu .more .drop {
+            width: 100px;
+            position: absolute;
+            bottom: 16px;
+            left: 92px;
+            background-color: #fff;
+            border-radius: 2px;
+            display: none;
+        }
+        .nav_menu .more .drop ul li {
+            width: 100px;
+            height: 46px;
+            text-align: center;
+        }
+        .nav_menu .more .drop ul li a {
+            display: block;
+            line-height: 46px;
+            color: #333;
+            font-size: 12px;
+        }
+
+
+        .nav_menu .navigation ul li a.down{
+            background: url(static/images/icon_arrow.png) 164px center no-repeat;
+        }
+        .nav_menu .navigation ul li a.down.fa-chevron-up{
+            background: url(static/images/icon_arrow_a.png) 164px center no-repeat;
+        }
+        .nav_menu .navigation ul li .overview em{
+            background: url(static/images/ico_n1.png) left center no-repeat;
+        }
+        .nav_menu .navigation ul li .data_kanban em{
+            background: url(static/images/ico_n2.png) left center no-repeat;
+        }
+        .nav_menu .navigation ul li .material em{
+            background: url(static/images/ico_n3.png) left center no-repeat;
+        }
+        .nav_menu .navigation ul li .service em{
+            background: url(static/images/ico_n4.png) left center no-repeat;
+        }
+        .nav_menu .navigation ul li .management em{
+            background: url(static/images/ico_n5.png) left center no-repeat;
+        }
+        .nav_menu .navigation ul li .proxy em{
+            background: url(static/images/ico_n6.png) left center no-repeat;
+        }
+        .nav_menu .navigation ul li .helper em{
+            background: url(static/images/ico_n7.png) left center no-repeat;
+        }
+        .nav_menu .navigation ul li .bigdata em{
+            background: url(static/images/ico_n8.png) left center no-repeat;
+        }
+        .nav_menu .navigation ul li .university em{
+            background: url(static/images/ico_n9.png) left center no-repeat;
+        }
+        .nav_menu .navigation ul li .copy_ser em{
+            background: url(static/images/ico_n10.png) left center no-repeat;
+        }
+        .nav_menu .navigation ul li .other em{
+            background: url(static/images/ico_n11.png) left center no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav_menu">
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="" class="overview"><em>总览</em></a>
+                </li>
+            </ul>
+            <ul>
+                <span class="ti">获客大师</span>
+                <li>
+                    <a href="" class="data_kanban"><em>营销数据看板</em></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="down material">
+                        <em>获客素材</em>
+                    </a>
+                    <div class="drop">
+                        <ul>
+                            <li><a href="" class="curr"><em>客户推荐</em></a></li>
+                            <li><a href=""><em>获客文章</em></a></li>
+                            <li><a href=""><em>获客海报</em></a></li>
+                            <li><a href=""><em>我的电子名片</em></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="down service">
+                        <em>获客服务</em><i class="down"></i>
+                    </a>
+                    <div class="drop">
+                        <ul>
+                            <li><a href="" class="curr"><em>获客服务</em></a></li>
+                            <li><a href=""><em>获客服务</em></a></li>
+                            <li><a href=""><em>获客服务</em></a></li>
+                            <li><a href=""><em>获客服务</em></a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="javascript:void(0)" class="down management">
+                        <em>企业管理</em><i class="down"></i>
+                    </a>
+                    <div class="drop">
+                        <ul>
+                            <li><a href="" class="curr"><em>企业管理</em></a></li>
+                            <li><a href=""><em>企业管理</em></a></li>
+                            <li><a href=""><em>企业管理</em></a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="ti">采购管家</span>
+                    <a href="" class="proxy"><em>代理采购</em></a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="ti">研发助手</span>
+                    <a href="" class="helper"><em>研发助手</em></a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="ti">大数据+</span>
+                    <a href="" class="bigdata"><em>大数据+</em></a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="ti">材料大学</span>
+                    <a href="" class="university"><em>材料大学</em></a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="ti">企业服务</span>
+                    <a href="" class="copy_ser"><em>企业服务</em></a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span class="ti">其他</span>
+                    <a href="" class="other"><em>其他</em></a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="more">
+            <span><a href="javascript:void(0);" class="set">设置</a></span>
+            <div class="drop">
+                <ul>
+                    <li><a href="">关于我们</a></li>
+                    <li><a href="">帮助中心</a></li>
+                    <li><a href="">意见反馈</a></li>
+                </ul>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                //左侧导航的动态效果
+                $('.navigation ul li .down').click(function () {
+                    if (false == $(this).siblings('.navigation ul li .drop').is(
+                            ':visible')) {
+                        $(this).addClass("fa-chevron-up");
+                    } else {
+                        $(this).removeClass("fa-chevron-up");
+                    }
+                    $(this).siblings('.navigation ul li .drop').slideToggle('fast');
+                });
+                $(".nav_menu .more").hover(function () {
+                    $(this).find(".drop").stop().fadeIn();
+                }, function () {
+                    $(this).find(".drop").stop().fadeOut();
+                });
+            })
+        </script>
+    </div>
+
+</body>
+
+</html>
