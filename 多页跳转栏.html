@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .page_item{
+            text-align: center;
+        }
+        .page_item span {
+            display: inline-block;
+            margin-left: 4px;
+        }
+        .page_item span a {
+            display: block;
+            min-width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 12px;
+            font-family: arial;
+            color: #333;
+            background-color: #F2F4F5;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .page_item span.pre a {
+            text-indent: -99999px;
+            background: url(static/images/icon_pre.png) center no-repeat;
+            background-color: #F2F4F5;
+        }
+        .page_item span.next a {
+            text-indent: -99999px;
+            background: url(static/images/icon_next.png) center no-repeat;
+            background-color: #F2F4F5;
+        }
+        .page_item span.go_link {
+            margin-left: 10px;
+        }
+        .page_item span.go_link input {
+            width: 34px;
+            height: 26px;
+            text-align: center;
+            line-height: 30px;
+            background-color: #F2F4F5;
+            border: 1px solid #F2F4F5;
+            color: #333;
+            border-radius: 4px;
+            font-family: arial;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page_item">
+        <span class="pre"><a href="">上一页</a></span>
+        <span class="num"><a href="" class="curr">1</a></span>
+        <span class="num"><a href="">2</a></span>
+        <span class="num"><a href="">3</a></span>
+        <span class="num"><a href="">4</a></span>
+        <span class="num"><a href="">...</a></span>
+        <span class="num"><a href="">10</a></span>
+        <span class="next"><a href="">下一页</a></span>
+        <span class="go_link">
+            <span class="text">跳转至</span>
+            <input type="text" name="" id="" value="1">
+            <span class="text">页</span>
+        </span>
+    </div>
+</body>
+</html>
